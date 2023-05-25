@@ -45,6 +45,23 @@ export class MarsRover {
           break;
       }
     }
+
+    moveBackward(): void {
+      switch (this.direction) {
+        case 'N':
+          this.y--;
+          break;
+        case 'E':
+          this.x--;
+          break;
+        case 'S':
+          this.y++;
+          break;
+        case 'O':
+          this.x++;
+          break;
+      }
+    }
   
     turnLeft(): void {
       switch (this.direction) {
@@ -81,20 +98,22 @@ export class MarsRover {
     }
   
     executeCommands(commands: string): void {
-        for (let i = 0; i < commands.length; i++) {
-            const command = commands[i];
-            switch (command) {
-              case 'F':
-                this.moveForward();
-                break;
-              case 'L':
-                this.turnLeft();
-                break;
-              case 'R':
-                this.turnRight();
-                break;
-            }
+      for (const command of commands) {
+        switch (command) {
+          case 'F':
+            this.moveForward();
+            break;
+          case 'B':
+            this.moveBackward();
+            break;
+          case 'L':
+            this.turnLeft();
+            break;
+          case 'R':
+            this.turnRight();
+            break;
         }
-    }
+      }
+    }       
 }
   

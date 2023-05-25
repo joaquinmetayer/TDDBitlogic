@@ -32,6 +32,24 @@ describe('MarsRover', () => {
       rover.moveForward();
       expect(rover.getPosition()).toEqual({ x: 0, y: 0 });
     });
+
+    test('moveBackward', () => {
+      const rover = new MarsRover(0, 0, 'N');
+      rover.moveBackward();
+      expect(rover.getPosition()).toEqual({ x: 0, y: -1 });
+    
+      rover.setDirection('E');
+      rover.moveBackward();
+      expect(rover.getPosition()).toEqual({ x: -1, y: -1 });
+    
+      rover.setDirection('S');
+      rover.moveBackward();
+      expect(rover.getPosition()).toEqual({ x: -1, y: 0 });
+    
+      rover.setDirection('O');
+      rover.moveBackward();
+      expect(rover.getPosition()).toEqual({ x: 0, y: 0 });
+    });    
   
     test('moveLeft', () => {
       const rover = new MarsRover(0, 0, 'N');
